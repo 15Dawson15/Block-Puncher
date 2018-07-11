@@ -48,7 +48,7 @@ public class BlockColorChanger : MonoBehaviour {
             {
                 if (interactionSourceState.touchpadPressed)
                 {
-                    if(interactionSourceState.touchpadPosition.y < 0)
+                    if(interactionSourceState.touchpadPosition.y > 0)
                     {
                         SetMaterial(0, 0);
                         //changer.SetMaterial(0, 0);
@@ -67,7 +67,7 @@ public class BlockColorChanger : MonoBehaviour {
             {
                 if (interactionSourceState.touchpadPressed)
                 {
-                    if (interactionSourceState.touchpadPosition.y < 0)
+                    if (interactionSourceState.touchpadPosition.y > 0)
                     {
                         SetMaterial(1, 2);
                         //changer.SetMaterial(1, 2);
