@@ -16,11 +16,11 @@ public class BlockColorChanger : MonoBehaviour {
 
     //private Dictionary<uint, ControllerState> controllers;
 
-    private PrefabManager changer;
+    //private PrefabManager changer;
 
     private void Awake()
     {
-        changer = new PrefabManager();
+        //changer = new PrefabManager();
         //controllers = new Dictionary<uint, ControllerState>();
 
         //InteractionManager.InteractionSourceDetected += InteractionManager_InteractionSourceDetected;
@@ -29,7 +29,14 @@ public class BlockColorChanger : MonoBehaviour {
         //InteractionManager.InteractionSourceUpdated += InteractionManager_InteractionSourceUpdated;
     }
 
-    
+    public GameObject[] Prefabs;
+    public Material[] Materials;
+
+    private void SetMaterial(int prefabIndex, int materialIndex)
+    {
+        Prefabs[prefabIndex].GetComponent<Renderer>().material = Materials[materialIndex];
+    }
+
 
     private void Update()
     {
@@ -43,12 +50,14 @@ public class BlockColorChanger : MonoBehaviour {
                 {
                     if(interactionSourceState.touchpadPosition.y < 0)
                     {
-                        changer.SetMaterial(0, 0);
+                        SetMaterial(0, 0);
+                        //changer.SetMaterial(0, 0);
                         Debug.Log("Changing right controller to green...");
                     }
                     else
                     {
-                        changer.SetMaterial(0, 1);
+                        SetMaterial(0, 1);
+                        //changer.SetMaterial(0, 1);
                         Debug.Log("Changing right controller to blue...");
                     }
                 }
@@ -60,12 +69,14 @@ public class BlockColorChanger : MonoBehaviour {
                 {
                     if (interactionSourceState.touchpadPosition.y < 0)
                     {
-                        changer.SetMaterial(1, 2);
+                        SetMaterial(1, 2);
+                        //changer.SetMaterial(1, 2);
                         Debug.Log("Changing left controller to red...");
                     }
                     else
                     {
-                        changer.SetMaterial(1, 3);
+                        SetMaterial(1, 3);
+                        //changer.SetMaterial(1, 3);
                         Debug.Log("Changing left controller to orange...");
                     }
                 }
