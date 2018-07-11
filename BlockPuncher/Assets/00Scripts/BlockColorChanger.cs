@@ -6,18 +6,21 @@ using UnityEngine.XR.WSA.Input;
 
 public class BlockColorChanger : MonoBehaviour {
 
-    private class ControllerState
-    {
-        public InteractionSourceHandedness Handedness;
-        public bool TouchpadPressed;
-        public bool TouchpadTouched;
-        public Vector2 TouchpadPosition;
-    }
+    //private class ControllerState
+    //{
+    //    public InteractionSourceHandedness Handedness;
+    //    public bool TouchpadPressed;
+    //    public bool TouchpadTouched;
+    //    public Vector2 TouchpadPosition;
+    //}
 
     //private Dictionary<uint, ControllerState> controllers;
 
+    private PrefabManager changer;
+
     private void Awake()
     {
+        changer = new PrefabManager();
         //controllers = new Dictionary<uint, ControllerState>();
 
         //InteractionManager.InteractionSourceDetected += InteractionManager_InteractionSourceDetected;
@@ -26,6 +29,7 @@ public class BlockColorChanger : MonoBehaviour {
         //InteractionManager.InteractionSourceUpdated += InteractionManager_InteractionSourceUpdated;
     }
 
+    
 
     private void Update()
     {
@@ -35,11 +39,37 @@ public class BlockColorChanger : MonoBehaviour {
         {
             if (interactionSourceState.touchpadTouched && interactionSourceState.source.handedness == InteractionSourceHandedness.Right)
             {
-                Debug.Log("This is the right hand: " + interactionSourceState.touchpadPosition);
+                if (interactionSourceState.touchpadPressed)
+                {
+                    if(interactionSourceState.touchpadPosition.y < 0)
+                    {
+                        changer.SetMaterial(0, 0);
+                        Debug.Log("Changing right controller to green...");
+                    }
+                    else
+                    {
+                        changer.SetMaterial(0, 1);
+                        Debug.Log("Changing right controller to blue...");
+                    }
+                }
+                //Debug.Log("This is the right hand: " + interactionSourceState.touchpadPosition);
             }
             if (interactionSourceState.touchpadTouched && interactionSourceState.source.handedness == InteractionSourceHandedness.Left)
             {
-                Debug.Log("This is the left hand: " + interactionSourceState.touchpadPosition);
+                if (interactionSourceState.touchpadPressed)
+                {
+                    if (interactionSourceState.touchpadPosition.y < 0)
+                    {
+                        changer.SetMaterial(1, 2);
+                        Debug.Log("Changing left controller to red...");
+                    }
+                    else
+                    {
+                        changer.SetMaterial(1, 3);
+                        Debug.Log("Changing left controller to orange...");
+                    }
+                }
+                //Debug.Log("This is the left hand: " + interactionSourceState.touchpadPosition);
             }
         }
     }
