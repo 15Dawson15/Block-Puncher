@@ -107,3 +107,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a50ddc7eb3b349b4e9ead29cba749862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Prefabs:
+  - {fileID: 1552801381506076}
+  - {fileID: 1245750639445608, guid: 329cc149dbe2f3a4eb723887a1948f63, type: 2}
+  Materials:
+  - {fileID: 2100000, guid: db9f50fea4fecbe4e9fb54f54c3f5b23, type: 2}
+  - {fileID: 2100000, guid: fcaf9c4a9ab07714f904416bd3319368, type: 2}
+  - {fileID: 2100000, guid: 52fe54fc26e700c4ab4e821acf43783c, type: 2}
+  - {fileID: 2100000, guid: c3a82ed3b134437488e0642431f3fd28, type: 2}
