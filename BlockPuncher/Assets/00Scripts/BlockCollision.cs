@@ -18,9 +18,17 @@ public class BlockCollision : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        BlockMovement blockScript = collision.gameObject.GetComponent<BlockMovement>();
-        if (blockScript != null)
+        //BlockMovement blockScript = collision.gameObject.GetComponent<BlockMovement>();
+        //if (blockScript != null)
+        //{
+        //    Destroy(collision.gameObject);
+        //}
+
+        Debug.Log("Entered Collision method");
+        Material blockMat = collision.gameObject.GetComponent<Renderer>().material;
+        if(blockMat != null && blockMat == this.GetComponent<Renderer>().material)
         {
+            Debug.Log("Now destroying object...");
             Destroy(collision.gameObject);
         }
     }
