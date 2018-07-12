@@ -19,7 +19,7 @@ public class BlockEmitter : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Instantiate(block, this.transform.position, new Quaternion(0,0,0,0));
+        //Instantiate(block, this.transform.position, new Quaternion(0,0,0,0));
 	}
 	
 	// Update is called once per frame
@@ -45,11 +45,11 @@ public class BlockEmitter : MonoBehaviour {
         float xPosition;
         if(x == 0)
         {
-            xPosition = -.3f;
+            xPosition = -.5f;
         }
         else
         {
-            xPosition = .3f;
+            xPosition = .5f;
         }
 
         int y = Random.Range(0, 3);
@@ -58,7 +58,7 @@ public class BlockEmitter : MonoBehaviour {
         switch (y)
         {
             case 0:
-                yPosition = player.transform.position.y - .5f;
+                yPosition = player.transform.position.y - .3f;
                 break;
 
             case 1:
@@ -66,7 +66,7 @@ public class BlockEmitter : MonoBehaviour {
                 break;
 
             default:
-                yPosition = player.transform.position.y + .5f;
+                yPosition = player.transform.position.y + .3f;
                 break;
         }
 
@@ -76,7 +76,7 @@ public class BlockEmitter : MonoBehaviour {
     private Material RandomMaterial(float xPosition)
     {
         int ranColor = Random.Range(0,2);
-        if(xPosition == -.3f)
+        if(xPosition == -.5f)
         {
             if(ranColor == 0)
             {
