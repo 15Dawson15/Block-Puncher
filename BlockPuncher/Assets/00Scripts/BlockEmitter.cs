@@ -45,11 +45,11 @@ public class BlockEmitter : MonoBehaviour {
         float xPosition;
         if(x == 0)
         {
-            xPosition = -.3f;
+            xPosition = player.transform.position.x -.3f;
         }
         else
         {
-            xPosition = .3f;
+            xPosition = player.transform.position.x + .3f;
         }
 
         int y = Random.Range(0, 3);
@@ -58,15 +58,15 @@ public class BlockEmitter : MonoBehaviour {
         switch (y)
         {
             case 0:
-                yPosition = .5f;
+                yPosition = player.transform.position.y - .5f;
                 break;
 
             case 1:
-                yPosition = 1f;
+                yPosition = player.transform.position.y;
                 break;
 
             default:
-                yPosition = 1.5f;
+                yPosition = player.transform.position.y + .5f;
                 break;
         }
 
