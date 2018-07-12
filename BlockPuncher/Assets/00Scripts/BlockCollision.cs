@@ -25,8 +25,8 @@ public class BlockCollision : MonoBehaviour {
         //}
 
         Debug.Log("Entered Collision method");
-        Material blockMat = collision.gameObject.GetComponent<Renderer>().material;
-        if(blockMat != null && blockMat == this.GetComponent<Renderer>().material)
+        Material blockMat = collision.gameObject.GetComponent<Renderer>().sharedMaterial;
+        if(blockMat != null && blockMat == this.GetComponent<Renderer>().sharedMaterial)
         {
             Debug.Log("Now destroying object...");
             Destroy(collision.gameObject);
