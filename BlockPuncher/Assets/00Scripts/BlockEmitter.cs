@@ -9,6 +9,12 @@ public class BlockEmitter : MonoBehaviour {
     public float timer;
     public float elapsedTime = 0.0f;
 
+    // Materials
+    public Material green;
+    public Material blue;
+    public Material red;
+    public Material orange;
+
     //public Transform blockEmitTransform;
 
     // Use this for initialization
@@ -19,10 +25,17 @@ public class BlockEmitter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         elapsedTime += Time.deltaTime;
+
 		if(elapsedTime > timer)
         {
+            GameObject objToSpawn = block;
             elapsedTime = 0;
-            Instantiate(block, RandomPosition(), new Quaternion(0, 0, 0, 0));
+
+            Vector3 position = RandomPosition();
+
+            objToSpawn.GetComponent<Renderer>().material = RandomMaterial(position.x);
+
+            Instantiate(objToSpawn, position, new Quaternion(0, 0, 0, 0));
         }
 	}
 
@@ -33,29 +46,57 @@ public class BlockEmitter : MonoBehaviour {
         if(x == 0)
         {
             xPosition = -.3f;
-            //return new Vector3(-.3f, .5f, this.transform.position.z);
         }
         else
         {
             xPosition = .3f;
-            //return new Vector3(.3f, .5f, this.transform.position.z);
         }
 
         int y = Random.Range(0, 3);
         float yPosition;
+
         switch (y)
         {
             case 0:
                 yPosition = .5f;
                 break;
+
             case 1:
                 yPosition = 1f;
                 break;
+
             default:
                 yPosition = 1.5f;
                 break;
         }
 
         return new Vector3(xPosition, yPosition, this.transform.position.z);
+    }
+
+    private Material RandomMaterial(float xPosition)
+    {
+        int ranColor = Random.Range(0,2);
+        if(xPosition == -.3f)
+        {
+            if(ranColor == 0)
+            {
+                return red;
+            }
+            else
+            {
+                return orange;
+            }
+        }
+        else
+        {
+            if(ranColor == 0)
+            {
+                return green;
+            }
+            else
+            {
+                return blue;
+            }
+        }
     }
 }
