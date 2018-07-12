@@ -45,11 +45,11 @@ public class BlockEmitter : MonoBehaviour {
         float xPosition;
         if(x == 0)
         {
-            xPosition = player.transform.position.x -.3f;
+            xPosition = -.3f;
         }
         else
         {
-            xPosition = player.transform.position.x + .3f;
+            xPosition = .3f;
         }
 
         int y = Random.Range(0, 3);
