@@ -18,10 +18,10 @@ public class BlockCollision : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        BlockColorChanger controllerScript = collision.gameObject.GetComponent<BlockColorChanger>();
-        if(controllerScript != null)
+        BlockMovement blockScript = collision.gameObject.GetComponent<BlockMovement>();
+        if (blockScript != null)
         {
-            Destroy(this);
+            Destroy(collision.gameObject);
         }
     }
 }

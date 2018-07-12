@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb7f444f492ff344e9bf05de956bb096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -4
+  speed: -2
 --- !u!1001 &1120894108
 Prefab:
   m_ObjectHideFlags: 0
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb7f444f492ff344e9bf05de956bb096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -4
+  speed: -2
 --- !u!54 &1898742232
 Rigidbody:
   m_ObjectHideFlags: 0
