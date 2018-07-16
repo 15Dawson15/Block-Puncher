@@ -16,7 +16,7 @@ public class InstructionBlockDestroy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //Debug.Log("Counter: " + counter);
-		if(counter == 0)
+		if(counter < 1)
         {
             //Debug.Log("Hello");
             startGame = true;
@@ -34,7 +34,7 @@ public class InstructionBlockDestroy : MonoBehaviour {
             Debug.Log("Now destroying object...");
             Destroy(collision.gameObject);
             counter -= 1;
-            //Debug.Log("Counter: " + counter);
+            Debug.Log("Counter: " + counter);
         }
         //Debug.Log("Counter Outside: " + counter);
     }
