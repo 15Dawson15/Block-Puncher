@@ -18,7 +18,7 @@ public class InstructionBlockDestroy : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         //Debug.Log("Counter: " + counter);
-		if(count.GetCounter() == 4)
+		if(count.GetCounter() == 0)
         {
             //Debug.Log("Hello");
             startGame = true;
