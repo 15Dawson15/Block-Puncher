@@ -6,8 +6,10 @@ public class BlockEmitter : MonoBehaviour {
 
     public GameObject player;
     public GameObject block;
+    public GameObject controller;
     public float timer;
     public float elapsedTime = 0.0f;
+    private bool switchText = false;
     private InstructionBlockDestroy startGame;
 
     // Materials
@@ -18,20 +20,21 @@ public class BlockEmitter : MonoBehaviour {
 
     //public Transform blockEmitTransform;
 
+
     // Use this for initialization
     void Start () {
         startGame = controller.GetComponent<InstructionBlockDestroy>();
     }
 
-    public GameObject controller;
-
 	// Update is called once per frame
 	void Update () {
-        
+
         if (startGame.GetStartGame() != true)
         {
             return;
         }
+
+        switchText = true;
 
         elapsedTime += Time.deltaTime;
 
@@ -47,6 +50,11 @@ public class BlockEmitter : MonoBehaviour {
             Instantiate(objToSpawn, position, new Quaternion(0, 0, 0, 0));
         }
 	}
+
+    public bool GetSwitchText()
+    {
+        return switchText;
+    }
 
     private Vector3 RandomPosition()
     {

@@ -13,19 +13,18 @@ public class InstructionBlockDestroy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         count = controlCount.GetComponent<InstructionBlockCounter>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update () {
         //Debug.Log("Counter: " + counter);
 		if(count.GetCounter() == 4)
         {
             //Debug.Log("Hello");
             startGame = true;
-            Destroy(textThings[1]);
-            textBoxes.SetActive(false);
+            //Destroy(textThings[1]);
         }
-	}
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
