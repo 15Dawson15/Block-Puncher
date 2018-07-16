@@ -5,18 +5,20 @@ using UnityEngine;
 public class InstructionBlockDestroy : MonoBehaviour {
 
     private int counter = 4;
-    private bool startGame = false;
+    private static bool startGame = false;
     public GameObject textBoxes;
 
 	// Use this for initialization
-	void Start () {
+	//void Start () {
 		
-	}
+	//}
 	
 	// Update is called once per frame
 	void Update () {
-		if(counter == 0)
+        //Debug.Log("Counter: " + counter);
+		if(counter == 4)
         {
+            Debug.Log("Hello");
             startGame = true;
             textBoxes.SetActive(false);
         }
@@ -32,7 +34,9 @@ public class InstructionBlockDestroy : MonoBehaviour {
             Debug.Log("Now destroying object...");
             Destroy(collision.gameObject);
             counter -= 1;
+            Debug.Log("Counter: " + counter);
         }
+        Debug.Log("Counter Outside: " + counter);
     }
 
     public bool GetStartGame()
