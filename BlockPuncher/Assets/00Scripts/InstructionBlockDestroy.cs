@@ -7,16 +7,18 @@ public class InstructionBlockDestroy : MonoBehaviour {
     private int counter = 4;
     private static bool startGame = false;
     public GameObject textBoxes;
+    private InstructionBlockCounter count;
+    public GameObject controlCount;
 
 	// Use this for initialization
-	//void Start () {
-		
-	//}
+	void Start () {
+        count = controlCount.GetComponent<InstructionBlockCounter>();
+	}
 	
 	// Update is called once per frame
 	void Update () {
         //Debug.Log("Counter: " + counter);
-		if(counter < 1)
+		if(count.GetCounter() == 0)
         {
             //Debug.Log("Hello");
             startGame = true;
@@ -33,7 +35,8 @@ public class InstructionBlockDestroy : MonoBehaviour {
         {
             Debug.Log("Now destroying object...");
             Destroy(collision.gameObject);
-            counter -= 1;
+            count.SetCounter(count.GetCounter() - 1);
+            //counter -= 1;
             Debug.Log("Counter: " + counter);
         }
         //Debug.Log("Counter Outside: " + counter);

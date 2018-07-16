@@ -145,6 +145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBoxes: {fileID: 1889398183186558, guid: 0a9af61b08e6fc94098eea10f1d0543d, type: 2}
+  controlCount: {fileID: 1780683048539416, guid: 64d91053475761c459bb66658d0ea4cf,
+    type: 2}
 --- !u!114 &114751369333406156
 MonoBehaviour:
   m_ObjectHideFlags: 1
