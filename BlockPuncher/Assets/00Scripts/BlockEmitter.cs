@@ -20,14 +20,14 @@ public class BlockEmitter : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        //startGame = new InstructionBlockDestroy();
+        startGame = controller.GetComponent<InstructionBlockDestroy>();
     }
 
     public GameObject controller;
 
 	// Update is called once per frame
 	void Update () {
-        startGame = controller.GetComponent<InstructionBlockDestroy>();
+        
         if (startGame.GetStartGame() != true)
         {
             return;
