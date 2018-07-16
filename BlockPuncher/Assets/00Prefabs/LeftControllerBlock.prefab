@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114527137363977156}
   - component: {fileID: 54938343678950040}
   - component: {fileID: 114328309750629984}
+  - component: {fileID: 114795347618044194}
   m_Layer: 0
   m_Name: LeftControllerBlock
   m_TagString: Untagged
@@ -143,3 +144,15 @@ MonoBehaviour:
   - {fileID: 2100000, guid: fcaf9c4a9ab07714f904416bd3319368, type: 2}
   - {fileID: 2100000, guid: 52fe54fc26e700c4ab4e821acf43783c, type: 2}
   - {fileID: 2100000, guid: c3a82ed3b134437488e0642431f3fd28, type: 2}
+--- !u!114 &114795347618044194
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1245750639445608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b51ad7365fb390149af42e0c817a8f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxes: {fileID: 1889398183186558, guid: 0a9af61b08e6fc94098eea10f1d0543d, type: 2}

@@ -8,6 +8,7 @@ public class BlockEmitter : MonoBehaviour {
     public GameObject block;
     public float timer;
     public float elapsedTime = 0.0f;
+    private InstructionBlockDestroy startGame;
 
     // Materials
     public Material green;
@@ -19,11 +20,19 @@ public class BlockEmitter : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        //Instantiate(block, this.transform.position, new Quaternion(0,0,0,0));
-	}
-	
+        //startGame = new InstructionBlockDestroy();
+    }
+
+    public GameObject controller;
+
 	// Update is called once per frame
 	void Update () {
+        startGame = controller.GetComponent<InstructionBlockDestroy>();
+        if (startGame.GetStartGame() != true)
+        {
+            return;
+        }
+
         elapsedTime += Time.deltaTime;
 
 		if(elapsedTime > timer)
