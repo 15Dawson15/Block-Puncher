@@ -142,13 +142,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1538573372}
   block: {fileID: 1080632788033228, guid: d66b7bc5ff0803442b58d9cbd7142099, type: 2}
+  controller: {fileID: 1245750639445608, guid: 329cc149dbe2f3a4eb723887a1948f63, type: 2}
   timer: 0.5
   elapsedTime: 0
   green: {fileID: 2100000, guid: db9f50fea4fecbe4e9fb54f54c3f5b23, type: 2}
   blue: {fileID: 2100000, guid: fcaf9c4a9ab07714f904416bd3319368, type: 2}
   red: {fileID: 2100000, guid: 52fe54fc26e700c4ab4e821acf43783c, type: 2}
   orange: {fileID: 2100000, guid: c3a82ed3b134437488e0642431f3fd28, type: 2}
-  controller: {fileID: 1245750639445608, guid: 329cc149dbe2f3a4eb723887a1948f63, type: 2}
 --- !u!4 &70404375
 Transform:
   m_ObjectHideFlags: 0
@@ -629,6 +629,18 @@ GameObject:
   m_PrefabParentObject: {fileID: 1208988342737728, guid: f46f9eddea7bd4d4e813283cdc60cb96,
     type: 2}
   m_PrefabInternal: {fileID: 1120894108}
+--- !u!114 &1538573379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1538573372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa3619ff2003b44ea5651256e6d1241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockEmitter: {fileID: 70404373}
 --- !u!1001 &1812592614
 Prefab:
   m_ObjectHideFlags: 0
