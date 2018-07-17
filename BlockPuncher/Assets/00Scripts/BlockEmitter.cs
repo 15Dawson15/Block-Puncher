@@ -9,10 +9,12 @@ public class BlockEmitter : MonoBehaviour {
     public GameObject controller;
     public GameObject scoreText;
     public float timer;
-    public float elapsedTime = 0.0f;
+    private float elapsedTime = 0.0f;
     private bool switchText = false;
+    private bool start;
     private InstructionBlockDestroy startGame;
     private int scoreCounter;
+    private int waveNumber;
     private Scoring score;
 
     // Materials
@@ -26,9 +28,11 @@ public class BlockEmitter : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        waveNumber = 1;
         startGame = controller.GetComponent<InstructionBlockDestroy>();
         scoreCounter = controller.GetComponent<BlockCollision>().GetScoreCount();
         score = scoreText.GetComponent<Scoring>();
+        start = true;
     }
 
 	// Update is called once per frame
@@ -44,18 +48,64 @@ public class BlockEmitter : MonoBehaviour {
 
         switchText = true;
 
-        elapsedTime += Time.deltaTime;
-
-		if(elapsedTime > timer)
+        if (start == true)
         {
             GameObject objToSpawn = block;
-            elapsedTime = 0;
 
-            Vector3 position = RandomPosition();
+            if (waveNumber == 1 && GetComponent<Waves>().GetMaxBlocks() >= 0)
+            {
+                Debug.Log("Inside Wave One in Update");
+                objToSpawn.GetComponent<BlockMovement>().speed = GetComponent<Waves>().GetSpeed();
+                timer = 1f;
+            }
+            if (waveNumber == 2 && GetComponent<Waves>().GetMaxBlocks() >= 0)
+            {
+                Debug.Log("Inside Wave two in update");
+                objToSpawn.GetComponent<BlockMovement>().speed = GetComponent<Waves>().GetSpeed();
+            }
+            if (waveNumber == 3 && GetComponent<Waves>().GetMaxBlocks() >= 0)
+            {
+                Debug.Log("Inside wave three in update");
+                objToSpawn.GetComponent<BlockMovement>().speed = GetComponent<Waves>().GetSpeed();
+                timer = .5f;
+            }
 
-            objToSpawn.GetComponent<Renderer>().material = RandomMaterial(position.x);
+            elapsedTime += Time.deltaTime;
 
-            Instantiate(objToSpawn, position, new Quaternion(0, 0, 0, 0));
+            if (elapsedTime > timer)
+            {
+                elapsedTime = 0;
+
+                Vector3 position = RandomPosition();
+
+                objToSpawn.GetComponent<Renderer>().material = RandomMaterial(position.x);
+                objToSpawn.GetComponent<BlockMovement>().speed = GetComponent<Waves>().GetSpeed();
+
+                Instantiate(objToSpawn, position, new Quaternion(0, 0, 0, 0));
+                GetComponent<Waves>().SubMaxBlocks();
+            }
+        }
+        if(GetComponent<Waves>().GetMaxBlocks() <= 0)
+        {
+            start = false;
+            waveNumber += 1;
+            switch (waveNumber)
+            {
+                case 1:
+                    GetComponent<Waves>().WaveOne();
+                    break;
+                case 2:
+                    GetComponent<Waves>().WaveTwo();
+                    break;
+                case 3:
+                    GetComponent<Waves>().WaveThree();
+                    break;
+            }
+        }
+
+        if(start == false && GameObject.Find("Block(Clone)") == null)
+        {
+            start = true;
         }
 	}
 
