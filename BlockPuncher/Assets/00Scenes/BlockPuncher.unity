@@ -145,6 +145,7 @@ MonoBehaviour:
   block: {fileID: 1080632788033228, guid: d66b7bc5ff0803442b58d9cbd7142099, type: 2}
   controller: {fileID: 1245750639445608, guid: 329cc149dbe2f3a4eb723887a1948f63, type: 2}
   scoreText: {fileID: 1907989412}
+  blockDestroyer: {fileID: 2036723221}
   timer: 0.5
   green: {fileID: 2100000, guid: db9f50fea4fecbe4e9fb54f54c3f5b23, type: 2}
   blue: {fileID: 2100000, guid: fcaf9c4a9ab07714f904416bd3319368, type: 2}
@@ -549,7 +550,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1205060252105702, guid: d587c410846960142a7fe62fcfe0cd21, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d587c410846960142a7fe62fcfe0cd21, type: 2}
@@ -936,7 +937,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1205060252105702, guid: d587c410846960142a7fe62fcfe0cd21, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d587c410846960142a7fe62fcfe0cd21, type: 2}
@@ -1270,7 +1271,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1205060252105702, guid: d587c410846960142a7fe62fcfe0cd21, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d587c410846960142a7fe62fcfe0cd21, type: 2}
@@ -1778,7 +1779,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1205060252105702, guid: d587c410846960142a7fe62fcfe0cd21, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d587c410846960142a7fe62fcfe0cd21, type: 2}

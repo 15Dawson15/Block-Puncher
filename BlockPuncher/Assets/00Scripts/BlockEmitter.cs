@@ -8,13 +8,15 @@ public class BlockEmitter : MonoBehaviour {
     public GameObject block;
     public GameObject controller;
     public GameObject scoreText;
+    public GameObject blockDestroyer;
+
     public float timer;
 
     private float elapsedTime = 0.0f;
 
-    private bool switchText = false;
+    private bool switchText;
     private bool start;
-    private bool fifthWave = false;
+    private bool endGame;
 
     private InstructionBlockDestroy startGame;
 
@@ -41,12 +43,14 @@ public class BlockEmitter : MonoBehaviour {
         scoreCounter = controller.GetComponent<BlockCollision>().GetScoreCount();
         score = scoreText.GetComponent<Scoring>();
         start = true;
+        switchText = false;
+        endGame = false;
     }
 
 	// Update is called once per frame
 	void Update () {
 
-        if (startGame.GetStartGame() != true)
+        if (startGame.GetStartGame() != false)
         {
             return;
         }
@@ -56,7 +60,7 @@ public class BlockEmitter : MonoBehaviour {
 
         switchText = true;
 
-        if (start == true)
+        if (start == true && endGame == false)
         {
             GameObject objToSpawn = block;
 
@@ -80,14 +84,15 @@ public class BlockEmitter : MonoBehaviour {
             }
             if (waveNumber == 4 && GetComponent<Waves>().GetMaxBlocks() >= 0)
             {
-                Debug.Log("Inside wave three in update");
+                Debug.Log("Inside wave four in update");
                 objToSpawn.GetComponent<BlockMovement>().speed = GetComponent<Waves>().GetSpeed();
+                blockDestroyer.transform.position = new Vector3(0f, 0f, 1f);
             }
             if (waveNumber == 5 && GetComponent<Waves>().GetMaxBlocks() >= 0)
             {
-                Debug.Log("Inside wave three in update");
+                Debug.Log("Inside wave five in update");
                 objToSpawn.GetComponent<BlockMovement>().speed = GetComponent<Waves>().GetSpeed();
-                fifthWave = true;
+                blockDestroyer.transform.position = new Vector3(0f, 0f, -1f);
             }
 
             elapsedTime += Time.deltaTime;
@@ -126,8 +131,13 @@ public class BlockEmitter : MonoBehaviour {
                 case 5:
                     GetComponent<Waves>().WaveFive();
                     break;
+                default:
+                    endGame = true;
+                    break;
             }
         }
+
+
 
         if(start == false && GameObject.Find("Block(Clone)") == null)
         {
@@ -143,7 +153,7 @@ public class BlockEmitter : MonoBehaviour {
     private Vector3 RandomPosition()
     {
         float xPosition;
-        if (fifthWave != true)
+        if (waveNumber < 4)
         {
             int x = Random.Range(0, 2);
             if (x == 0)
@@ -155,6 +165,20 @@ public class BlockEmitter : MonoBehaviour {
             {
                 xPosition = .5f;
                 handPosition = "Right";
+            }
+        }
+        else if(waveNumber == 4)
+        {
+            int x = Random.Range(0, 2);
+            if (x == 0)
+            {
+                xPosition = -.5f;
+                handPosition = "Right";
+            }
+            else
+            {
+                xPosition = .5f;
+                handPosition = "Left";
             }
         }
         else
