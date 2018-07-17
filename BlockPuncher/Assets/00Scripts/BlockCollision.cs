@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class BlockCollision : MonoBehaviour {
 
-    public GameObject scoreTower;
-    private Scoring score;
+    //public GameObject scoreTower;
+    //private Scoring score;
 
-    private void Start()
-    {
-        score = scoreTower.GetComponent<Scoring>();
-    }
+    //private void Start()
+    //{
+    //    score = scoreTower.GetComponent<Scoring>();
+    //}
+
+    public static int scoreCount = 0;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -22,9 +24,15 @@ public class BlockCollision : MonoBehaviour {
         {
 
             //Score Increase in here
-            score.IncreaseScore(1);
+            //score.IncreaseScore(1);
+            scoreCount += 1;
             Debug.Log("Now destroying object...");
             Destroy(collision.gameObject);
         }
+    }
+
+    public int GetScoreCount()
+    {
+        return scoreCount;
     }
 }

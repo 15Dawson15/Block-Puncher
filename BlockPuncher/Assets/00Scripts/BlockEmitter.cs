@@ -7,10 +7,13 @@ public class BlockEmitter : MonoBehaviour {
     public GameObject player;
     public GameObject block;
     public GameObject controller;
+    public GameObject scoreText;
     public float timer;
     public float elapsedTime = 0.0f;
     private bool switchText = false;
     private InstructionBlockDestroy startGame;
+    private int scoreCounter;
+    private Scoring score;
 
     // Materials
     public Material green;
@@ -24,6 +27,8 @@ public class BlockEmitter : MonoBehaviour {
     // Use this for initialization
     void Start () {
         startGame = controller.GetComponent<InstructionBlockDestroy>();
+        scoreCounter = controller.GetComponent<BlockCollision>().GetScoreCount();
+        score = scoreText.GetComponent<Scoring>();
     }
 
 	// Update is called once per frame
@@ -33,6 +38,9 @@ public class BlockEmitter : MonoBehaviour {
         {
             return;
         }
+
+        scoreCounter = controller.GetComponent<BlockCollision>().GetScoreCount();
+        score.SetCurrentScore(scoreCounter);
 
         switchText = true;
 

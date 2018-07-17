@@ -125,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 433491ca68d3c6145a073c6ca66c3c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreTower: {fileID: 1356550459561714, guid: f8bc7833cc2acab40b4f7454b096b659, type: 2}
 --- !u!114 &114527137363977156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -157,9 +156,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBoxes: {fileID: 1889398183186558, guid: 0a9af61b08e6fc94098eea10f1d0543d, type: 2}
-  textThings:
-  - {fileID: 1506670923922084, guid: 0a9af61b08e6fc94098eea10f1d0543d, type: 2}
-  - {fileID: 1538987746330362, guid: 0a9af61b08e6fc94098eea10f1d0543d, type: 2}
-  - {fileID: 1590940310944594, guid: 0a9af61b08e6fc94098eea10f1d0543d, type: 2}
   controlCount: {fileID: 1780683048539416, guid: 64d91053475761c459bb66658d0ea4cf,
     type: 2}

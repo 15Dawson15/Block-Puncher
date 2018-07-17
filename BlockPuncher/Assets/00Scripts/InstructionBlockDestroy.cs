@@ -6,7 +6,7 @@ public class InstructionBlockDestroy : MonoBehaviour {
 
     private static bool startGame = false;
     public GameObject textBoxes;
-    public GameObject[] textThings;
+    //public GameObject[] textThings;
     private InstructionBlockCounter count;
     public GameObject controlCount;
 

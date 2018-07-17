@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Scoring : MonoBehaviour {
 
     public Text score;
-    public int currentScore;
+    private int currentScore;
 
 	// Use this for initialization
 	void Start () {
@@ -22,5 +22,10 @@ public class Scoring : MonoBehaviour {
     public void IncreaseScore(int number)
     {
         currentScore += number;
+    }
+
+    public void SetCurrentScore(int number)
+    {
+        currentScore = number;
     }
 }
