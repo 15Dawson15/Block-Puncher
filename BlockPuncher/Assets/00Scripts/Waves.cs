@@ -11,6 +11,7 @@ public class Waves : MonoBehaviour {
 	void Start () {
         maxBlocks = 10;
         speed = -2f;
+        this.transform.position = new Vector3(0f, .5f, 15f);
 	}
 	
 	// Update is called once per frame
@@ -34,6 +35,20 @@ public class Waves : MonoBehaviour {
     {
         maxBlocks = 20;
         speed = -4f;
+    }
+
+    public void WaveFour()
+    {
+        maxBlocks = 25;
+        speed = 4.5f;
+        this.transform.position = new Vector3(0f, .5f, -15f);
+    }
+
+    public void WaveFive()
+    {
+        maxBlocks = 30;
+        speed = -3.5f;
+        this.transform.position = new Vector3(0f, .5f, 15f);
     }
 
     public float GetSpeed()

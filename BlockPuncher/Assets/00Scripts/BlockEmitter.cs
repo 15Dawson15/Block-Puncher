@@ -9,13 +9,21 @@ public class BlockEmitter : MonoBehaviour {
     public GameObject controller;
     public GameObject scoreText;
     public float timer;
+
     private float elapsedTime = 0.0f;
+
     private bool switchText = false;
     private bool start;
+    private bool fifthWave = false;
+
     private InstructionBlockDestroy startGame;
+
     private int scoreCounter;
     private int waveNumber;
+
     private Scoring score;
+
+    private string handPosition;
 
     // Materials
     public Material green;
@@ -52,6 +60,7 @@ public class BlockEmitter : MonoBehaviour {
         {
             GameObject objToSpawn = block;
 
+            //Wave selection TODO: Make this into a method so there isn't this clutter here
             if (waveNumber == 1 && GetComponent<Waves>().GetMaxBlocks() >= 0)
             {
                 Debug.Log("Inside Wave One in Update");
@@ -69,6 +78,17 @@ public class BlockEmitter : MonoBehaviour {
                 objToSpawn.GetComponent<BlockMovement>().speed = GetComponent<Waves>().GetSpeed();
                 timer = .5f;
             }
+            if (waveNumber == 4 && GetComponent<Waves>().GetMaxBlocks() >= 0)
+            {
+                Debug.Log("Inside wave three in update");
+                objToSpawn.GetComponent<BlockMovement>().speed = GetComponent<Waves>().GetSpeed();
+            }
+            if (waveNumber == 5 && GetComponent<Waves>().GetMaxBlocks() >= 0)
+            {
+                Debug.Log("Inside wave three in update");
+                objToSpawn.GetComponent<BlockMovement>().speed = GetComponent<Waves>().GetSpeed();
+                fifthWave = true;
+            }
 
             elapsedTime += Time.deltaTime;
 
@@ -78,7 +98,7 @@ public class BlockEmitter : MonoBehaviour {
 
                 Vector3 position = RandomPosition();
 
-                objToSpawn.GetComponent<Renderer>().material = RandomMaterial(position.x);
+                objToSpawn.GetComponent<Renderer>().material = RandomMaterial(handPosition);
                 objToSpawn.GetComponent<BlockMovement>().speed = GetComponent<Waves>().GetSpeed();
 
                 Instantiate(objToSpawn, position, new Quaternion(0, 0, 0, 0));
@@ -100,6 +120,12 @@ public class BlockEmitter : MonoBehaviour {
                 case 3:
                     GetComponent<Waves>().WaveThree();
                     break;
+                case 4:
+                    GetComponent<Waves>().WaveFour();
+                    break;
+                case 5:
+                    GetComponent<Waves>().WaveFive();
+                    break;
             }
         }
 
@@ -116,19 +142,37 @@ public class BlockEmitter : MonoBehaviour {
 
     private Vector3 RandomPosition()
     {
-        int x = Random.Range(0, 2);
         float xPosition;
-        if(x == 0)
+        if (fifthWave != true)
         {
-            xPosition = -.5f;
+            int x = Random.Range(0, 2);
+            if (x == 0)
+            {
+                xPosition = -.5f;
+                handPosition = "Left";
+            }
+            else
+            {
+                xPosition = .5f;
+                handPosition = "Right";
+            }
         }
         else
         {
-            xPosition = .5f;
+            float x = Random.Range(-1.0f, 1.0f);
+            if (x < 0)
+            {
+                xPosition = x;
+                handPosition = "Left";
+            }
+            else
+            {
+                xPosition = x;
+                handPosition = "Right";
+            }
         }
-
-        int y = Random.Range(0, 3);
-        float yPosition;
+            int y = Random.Range(0, 3);
+            float yPosition;
 
         switch (y)
         {
@@ -148,10 +192,10 @@ public class BlockEmitter : MonoBehaviour {
         return new Vector3(xPosition, yPosition, this.transform.position.z);
     }
 
-    private Material RandomMaterial(float xPosition)
+    private Material RandomMaterial(string handPosition)//float xPosition
     {
         int ranColor = Random.Range(0,2);
-        if(xPosition == -.5f)
+        if(handPosition.Equals("Left"))// == -.5f)
         {
             if(ranColor == 0)
             {
