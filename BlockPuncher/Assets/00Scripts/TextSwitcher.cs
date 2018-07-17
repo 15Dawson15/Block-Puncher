@@ -15,15 +15,10 @@ public class TextSwitcher : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (GameObject.Find("Canvas") != null && blockEmit.GetSwitchText() == true)
+        if (GameObject.Find("InstructionCanvas") != null && blockEmit.GetSwitchText() == true)
         {
-            GameObject.Find("Canvas").SetActive(false);
+            GameObject.Find("InstructionCanvas").SetActive(false);
         }
 
     }
-
-    //public void RemoveText()
-    //{
-    //    GameObject.Find("Canvas").SetActive(false);
-    //}
 }

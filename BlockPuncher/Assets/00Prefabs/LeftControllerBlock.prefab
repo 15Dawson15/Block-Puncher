@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 433491ca68d3c6145a073c6ca66c3c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreTower: {fileID: 1356550459561714, guid: f8bc7833cc2acab40b4f7454b096b659, type: 2}
 --- !u!114 &114527137363977156
 MonoBehaviour:
   m_ObjectHideFlags: 1

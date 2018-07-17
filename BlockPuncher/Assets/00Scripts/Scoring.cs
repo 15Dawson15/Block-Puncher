@@ -10,8 +10,8 @@ public class Scoring : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        score = GetComponent<Text>();
         currentScore = 0;
+        score = GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
