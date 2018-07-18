@@ -48,7 +48,7 @@ public class BlockEmitter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (startGame.GetStartGame() != false)
+        if (startGame.GetStartGame() != true)
         {
             return;
         }
