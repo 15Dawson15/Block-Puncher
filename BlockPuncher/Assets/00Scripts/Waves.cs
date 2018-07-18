@@ -13,11 +13,6 @@ public class Waves : MonoBehaviour {
         speed = -2f;
         this.transform.position = new Vector3(0f, .5f, 15f);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void WaveOne()
     {

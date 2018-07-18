@@ -5,7 +5,9 @@ using UnityEngine;
 public class BlockEmitter : MonoBehaviour {
 
     public GameObject player;
-    public GameObject block;
+    public GameObject block; //Change this into the bot
+    public GameObject bot;
+    public GameObject botBody;
     public GameObject controller;
     public GameObject scoreText;
     public GameObject blockDestroyer;
@@ -19,22 +21,18 @@ public class BlockEmitter : MonoBehaviour {
     private bool endGame;
 
     private InstructionBlockDestroy startGame;
+    private Scoring score;
 
     private int scoreCounter;
     private int waveNumber;
 
-    private Scoring score;
-
     private string handPosition;
 
-    // Materials
+    // Materials...Most likely will need to be changed to accomodate new theme
     public Material green;
     public Material blue;
     public Material red;
     public Material orange;
-
-    //public Transform blockEmitTransform;
-
 
     // Use this for initialization
     void Start () {
@@ -50,7 +48,7 @@ public class BlockEmitter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (startGame.GetStartGame() != true)
+        if (startGame.GetStartGame() != false)
         {
             return;
         }
@@ -62,13 +60,15 @@ public class BlockEmitter : MonoBehaviour {
 
         if (start == true && endGame == false)
         {
-            GameObject objToSpawn = block;
+            //GameObject objToSpawn = block; // Change this to the Bot
+            GameObject objToSpawn = bot; //ADDED THIS
+            GameObject objToMat = botBody; //ADDED THIS
 
             //Wave selection TODO: Make this into a method so there isn't this clutter here
             if (waveNumber == 1 && GetComponent<Waves>().GetMaxBlocks() >= 0)
             {
                 Debug.Log("Inside Wave One in Update");
-                objToSpawn.GetComponent<BlockMovement>().speed = GetComponent<Waves>().GetSpeed();
+                objToSpawn.GetComponent<BlockMovement>().speed = GetComponent<Waves>().GetSpeed(); //CHANGE ALL OF THESE TO RELATE TO NEW OBJTOSPAWN
                 timer = 1f;
             }
             if (waveNumber == 2 && GetComponent<Waves>().GetMaxBlocks() >= 0)
@@ -103,10 +103,19 @@ public class BlockEmitter : MonoBehaviour {
 
                 Vector3 position = RandomPosition();
 
-                objToSpawn.GetComponent<Renderer>().material = RandomMaterial(handPosition);
-                objToSpawn.GetComponent<BlockMovement>().speed = GetComponent<Waves>().GetSpeed();
+                //objToSpawn.GetComponent<Renderer>().material = RandomMaterial(handPosition); //Need to modify due to multiple gameObjects and materials
+                objToMat.GetComponent<Renderer>().material = RandomMaterial(handPosition); //ADDED THIS
+                //objToSpawn.GetComponent<BlockMovement>().speed = GetComponent<Waves>().GetSpeed();
 
-                Instantiate(objToSpawn, position, new Quaternion(0, 0, 0, 0));
+                //Instantiate(objToSpawn, position, new Quaternion(0, 0, 0, 0)); //ADD THIS BACK WHEN TESTING OUT THINGS AGAIN
+                if (waveNumber == 4)
+                {
+                    Instantiate(objToSpawn, position, Quaternion.Euler(0f, 55f, 0f));
+                }
+                else
+                {
+                    Instantiate(objToSpawn, position, Quaternion.Euler(0f, -125f, 0f)); //ADDED THIS...WORKS HOWEVER NEED TO MAKE BOT A PREFAB NOW
+                }
                 GetComponent<Waves>().SubMaxBlocks();
             }
         }
@@ -139,7 +148,7 @@ public class BlockEmitter : MonoBehaviour {
 
 
 
-        if(start == false && GameObject.Find("Block(Clone)") == null)
+        if(start == false && GameObject.Find("Bot(Clone)") == null) //Change this to the bot
         {
             start = true;
         }
@@ -216,7 +225,7 @@ public class BlockEmitter : MonoBehaviour {
         return new Vector3(xPosition, yPosition, this.transform.position.z);
     }
 
-    private Material RandomMaterial(string handPosition)//float xPosition
+    private Material RandomMaterial(string handPosition) //Material will need to be changed to whatever the new material is
     {
         int ranColor = Random.Range(0,2);
         if(handPosition.Equals("Left"))// == -.5f)
@@ -241,5 +250,10 @@ public class BlockEmitter : MonoBehaviour {
                 return blue;
             }
         }
+    }
+
+    public int GetWaveNum()
+    {
+        return waveNumber;
     }
 }
