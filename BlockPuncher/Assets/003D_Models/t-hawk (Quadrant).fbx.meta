@@ -1185,11 +1185,81 @@ ModelImporter:
     10800000: Light
     10800002: Light_1
     10800004: Light_2
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat
+    second: {fileID: 2100000, guid: 4506e7d4e8bf7a34b8892da82ea1c626, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat.1
+    second: {fileID: 2100000, guid: a4af2e3612fc78249a25d35be9f389d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: four
+    second: {fileID: 2100000, guid: b1f522deab81fc04b85c27aadb64dde2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: four.12
+    second: {fileID: 2100000, guid: 7ad6191763912434f9acc41099a095fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: four.15
+    second: {fileID: 2100000, guid: 48b83a90cc9810c44b32cc7751c2da6e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: four.3
+    second: {fileID: 2100000, guid: b9e3b68912fb51f4ba99e02c753672d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: four.6
+    second: {fileID: 2100000, guid: e1f1d5871b8cd5b45b19b3e7e4d5feef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: four.9
+    second: {fileID: 2100000, guid: 4a0c698e2067aa148a7fea6b740bd39d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: three
+    second: {fileID: 2100000, guid: eb5d2319e11e7a84aadc82b7143d164f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: three.3
+    second: {fileID: 2100000, guid: 4748d8ec5d98a044383a5ad64ffd1914, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: two
+    second: {fileID: 2100000, guid: 31609d8f2489483499249c2746bbbd39, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: two.3
+    second: {fileID: 2100000, guid: 75974ff19cd510b4ba74409c3c867803, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: two.6
+    second: {fileID: 2100000, guid: bca447dcebc86f646aa3ba1461cf47e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: two.9
+    second: {fileID: 2100000, guid: 63d6b2655269972419fb82111bd72dff, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
-    materialSearch: 1
+    materialSearch: 2
     materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
