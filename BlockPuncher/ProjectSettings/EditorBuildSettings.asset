@@ -6,5 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/00Scenes/MainMenu.unity
+    guid: b10ad2a6c550bc3438d517f7cfa98a2b
+  - enabled: 1
     path: Assets/00Scenes/BlockPuncher.unity
     guid: 2461244cec5582749851583c7dda1fd8

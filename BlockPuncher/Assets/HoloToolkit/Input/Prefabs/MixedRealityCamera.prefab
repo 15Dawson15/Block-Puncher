@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 81159208133050278}
   - component: {fileID: 114065736676316334}
   - component: {fileID: 114592271865726002}
+  - component: {fileID: 114146309079786726}
+  - component: {fileID: 114884735696434288}
   m_Layer: 0
   m_Name: MixedRealityCamera
   m_TagString: MainCamera
@@ -381,8 +383,8 @@ Camera:
   m_GameObject: {fileID: 1208988342737728}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -404,6 +406,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 0
   m_AllowMSAA: 0
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -459,6 +462,18 @@ MonoBehaviour:
   Axis0Destination: 2
   Axis1Destination: 1
   Axis2Destination: 6
+--- !u!114 &114146309079786726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1208988342737728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: d1ef01628d11f71479091d32146f0457, type: 2}
 --- !u!114 &114171714854052820
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -511,8 +526,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NearClipPlane_OpaqueDisplay: 0.1
-  CameraClearFlags_OpaqueDisplay: 1
-  BackgroundColor_OpaqueDisplay: {r: 0, g: 0, b: 0, a: 1}
+  CameraClearFlags_OpaqueDisplay: 2
+  BackgroundColor_OpaqueDisplay: {r: 1, g: 1, b: 1, a: 1}
   OpaqueQualityLevel: 5
   NearClipPlane_TransparentDisplay: 0.85
   CameraClearFlags_TransparentDisplay: 2
@@ -658,6 +673,19 @@ MonoBehaviour:
   Axis0Destination: 2
   Axis1Destination: 0
   Axis2Destination: 6
+--- !u!114 &114884735696434288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1208988342737728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa3619ff2003b44ea5651256e6d1241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockEmitter: {fileID: 0}
+  turnAround: {fileID: 0}
 --- !u!124 &124268468487872672
 Behaviour:
   m_ObjectHideFlags: 1

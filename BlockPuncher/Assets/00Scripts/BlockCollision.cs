@@ -4,32 +4,35 @@ using UnityEngine;
 
 public class BlockCollision : MonoBehaviour {
 
+    //public GameObject scoreTower;
+    //private Scoring score;
 
+    //private void Start()
+    //{
+    //    score = scoreTower.GetComponent<Scoring>();
+    //}
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public static int scoreCount = 0;
 
     private void OnCollisionEnter(Collision collision)
     {
-        //BlockMovement blockScript = collision.gameObject.GetComponent<BlockMovement>();
-        //if (blockScript != null)
-        //{
-        //    Destroy(collision.gameObject);
-        //}
-
-        Debug.Log("Entered Collision method");
-        Material blockMat = collision.gameObject.GetComponent<Renderer>().sharedMaterial;
-        if(blockMat != null && blockMat == this.GetComponent<Renderer>().sharedMaterial)
+        if(collision.gameObject.GetComponent<BotMaterial>() == null)
         {
-            Debug.Log("Now destroying object...");
+            return;
+        }
+        //Debug.Log("Entered Collision method");
+        Material blockMat = collision.gameObject.GetComponent<BotMaterial>().GetMaterial();
+        BlockMovement blockMove = collision.gameObject.GetComponent<BlockMovement>();
+        if(blockMat != null && blockMove != null && blockMat == this.GetComponent<Renderer>().sharedMaterial)
+        {
+            scoreCount += 1;
+           // Debug.Log("Now destroying object...");
             Destroy(collision.gameObject);
         }
+    }
+
+    public int GetScoreCount()
+    {
+        return scoreCount;
     }
 }
