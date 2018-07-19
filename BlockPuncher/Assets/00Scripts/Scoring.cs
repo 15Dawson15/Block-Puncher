@@ -2,21 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Scoring : MonoBehaviour {
 
-    public Text score;
+    private TextMeshProUGUI textMesH;
+
+   // public Text score;
     private int currentScore;
 
 	// Use this for initialization
 	void Start () {
         currentScore = 0;
-        score = GetComponent<Text>();
+        //score = GetComponent<Text>();
+        textMesH = GetComponent<TextMeshProUGUI>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        score.text = "Score: " + currentScore.ToString();
+        //score.text = "Score: " + currentScore.ToString();
+        textMesH.text = "Score: " + currentScore.ToString();
 	}
 
     public void IncreaseScore(int number)
