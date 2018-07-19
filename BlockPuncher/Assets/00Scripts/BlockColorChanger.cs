@@ -28,12 +28,12 @@ public class BlockColorChanger : MonoBehaviour {
                     if(interactionSourceState.touchpadPosition.y > 0)
                     {
                         SetMaterial(0, 0);
-                        Debug.Log("Changing right controller to green...");
+                        //Debug.Log("Changing right controller to green...");
                     }
                     else
                     {
                         SetMaterial(0, 1);
-                        Debug.Log("Changing right controller to blue...");
+                        //Debug.Log("Changing right controller to blue...");
                     }
                 }
             }
@@ -44,12 +44,12 @@ public class BlockColorChanger : MonoBehaviour {
                     if (interactionSourceState.touchpadPosition.y > 0)
                     {
                         SetMaterial(1, 2);
-                        Debug.Log("Changing left controller to red...");
+                        //Debug.Log("Changing left controller to red...");
                     }
                     else
                     {
                         SetMaterial(1, 3);
-                        Debug.Log("Changing left controller to orange...");
+                        //Debug.Log("Changing left controller to orange...");
                     }
                 }
             }

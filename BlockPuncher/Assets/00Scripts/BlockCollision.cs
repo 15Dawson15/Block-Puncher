@@ -16,14 +16,17 @@ public class BlockCollision : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-
-        Debug.Log("Entered Collision method");
+        if(collision.gameObject.GetComponent<BotMaterial>() == null)
+        {
+            return;
+        }
+        //Debug.Log("Entered Collision method");
         Material blockMat = collision.gameObject.GetComponent<BotMaterial>().GetMaterial();
         BlockMovement blockMove = collision.gameObject.GetComponent<BlockMovement>();
         if(blockMat != null && blockMove != null && blockMat == this.GetComponent<Renderer>().sharedMaterial)
         {
             scoreCount += 1;
-            Debug.Log("Now destroying object...");
+           // Debug.Log("Now destroying object...");
             Destroy(collision.gameObject);
         }
     }

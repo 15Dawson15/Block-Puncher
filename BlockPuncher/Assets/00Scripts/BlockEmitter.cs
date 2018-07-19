@@ -12,13 +12,14 @@ public class BlockEmitter : MonoBehaviour {
     public GameObject scoreText;
     public GameObject blockDestroyer;
 
-    public float timer;
+    private float timer;
 
     private float elapsedTime = 0.0f;
 
     private bool switchText;
     private bool start;
     private bool endGame;
+    private bool turnWave;
 
     private InstructionBlockDestroy startGame;
     private Scoring score;
@@ -67,30 +68,32 @@ public class BlockEmitter : MonoBehaviour {
             //Wave selection TODO: Make this into a method so there isn't this clutter here
             if (waveNumber == 1 && GetComponent<Waves>().GetMaxBlocks() >= 0)
             {
-                Debug.Log("Inside Wave One in Update");
+                //Debug.Log("Inside Wave One in Update");
                 objToSpawn.GetComponent<BlockMovement>().speed = GetComponent<Waves>().GetSpeed(); //CHANGE ALL OF THESE TO RELATE TO NEW OBJTOSPAWN
                 timer = 1f;
             }
             if (waveNumber == 2 && GetComponent<Waves>().GetMaxBlocks() >= 0)
             {
-                Debug.Log("Inside Wave two in update");
+                //Debug.Log("Inside Wave two in update");
                 objToSpawn.GetComponent<BlockMovement>().speed = GetComponent<Waves>().GetSpeed();
             }
             if (waveNumber == 3 && GetComponent<Waves>().GetMaxBlocks() >= 0)
             {
-                Debug.Log("Inside wave three in update");
+               // Debug.Log("Inside wave three in update");
                 objToSpawn.GetComponent<BlockMovement>().speed = GetComponent<Waves>().GetSpeed();
                 timer = .5f;
             }
             if (waveNumber == 4 && GetComponent<Waves>().GetMaxBlocks() >= 0)
             {
-                Debug.Log("Inside wave four in update");
+                //Debug.Log("Inside wave four in update");
+                turnWave = true;
                 objToSpawn.GetComponent<BlockMovement>().speed = GetComponent<Waves>().GetSpeed();
                 blockDestroyer.transform.position = new Vector3(0f, 0f, 1f);
             }
             if (waveNumber == 5 && GetComponent<Waves>().GetMaxBlocks() >= 0)
             {
-                Debug.Log("Inside wave five in update");
+                //Debug.Log("Inside wave five in update");
+                turnWave = true;
                 objToSpawn.GetComponent<BlockMovement>().speed = GetComponent<Waves>().GetSpeed();
                 blockDestroyer.transform.position = new Vector3(0f, 0f, -1f);
             }
@@ -122,6 +125,7 @@ public class BlockEmitter : MonoBehaviour {
         if(GetComponent<Waves>().GetMaxBlocks() <= 0)
         {
             start = false;
+            turnWave = false;
             waveNumber += 1;
             switch (waveNumber)
             {
@@ -255,5 +259,14 @@ public class BlockEmitter : MonoBehaviour {
     public int GetWaveNum()
     {
         return waveNumber;
+    }
+
+    public int GetBlockNum()
+    {
+        return GetComponent<Waves>().GetMaxBlocks();
+    }
+    public bool GetTurnWave()
+    {
+        return turnWave;
     }
 }

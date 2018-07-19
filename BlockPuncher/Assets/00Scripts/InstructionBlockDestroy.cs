@@ -25,15 +25,20 @@ public class InstructionBlockDestroy : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
 
-        Debug.Log("Entered Collision method Instructions");
-        Material blockMat = collision.gameObject.GetComponent<Renderer>().sharedMaterial;
-        if (blockMat != null && blockMat == this.GetComponent<Renderer>().sharedMaterial)
+        //Debug.Log("Entered Collision method Instructions");
+        if (collision.gameObject.GetComponent<InstructionBlock>() == null)
         {
-            Debug.Log("Now destroying object Instructions...");
+            return;   
+        }
+        Material blockMat = collision.gameObject.GetComponent<Renderer>().sharedMaterial;
+        string name = collision.gameObject.GetComponent<InstructionBlock>().GetName();
+        if (blockMat != null && name != null && blockMat == this.GetComponent<Renderer>().sharedMaterial && name.Equals("InstructionBlock"))
+        {
+            //Debug.Log("Now destroying object Instructions...");
             Destroy(collision.gameObject);
             count.SetCounter(count.GetCounter() - 1);
         }
-        Debug.Log("Counter Outside: " + count.GetCounter());
+        //Debug.Log("Counter Outside: " + count.GetCounter());
     }
 
     public bool GetStartGame()
